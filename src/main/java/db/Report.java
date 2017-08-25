@@ -2,30 +2,26 @@ package db;
 
 import java.util.Date;
 
-public class Report implements Entity{
+public class Report extends Entity{
 
     public static int nextId = 0;
-    private int id;
+
     private Date startDate;
     private Date endDate;
     private String performer;
     private String activity;
 
     public Report(Date startDate, Date endDate, String performer, String activity) {
+        super(nextId++);
         this.startDate = startDate;
         this.endDate = endDate;
         this.performer = performer;
         this.activity = activity;
-        this.id = nextId++;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
+
 
     public Date getStartDate() {
         return startDate;

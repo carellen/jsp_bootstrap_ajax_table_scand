@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -50,7 +52,17 @@ public class SimpleServlet extends HttpServlet {
         } else {
             Report report = new Report(start, end, performer, activity);
             base.addEntity(report.getId(), report);
-
+            DBHelper helper = null;
+            PreparedStatement statement = null;
+            try {
+                helper = new DBHelper();
+                statement = helper.getPreparedStatement();
+                helper.insertReport(statement, report);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                helper.closeStatement(statement);
+            }
             jsonElement = gson.toJsonTree(Report.nextId);
             obj.add("nextID", jsonElement);
             obj.addProperty("success", true);
