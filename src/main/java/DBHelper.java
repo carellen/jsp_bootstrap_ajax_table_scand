@@ -1,13 +1,11 @@
 import db.Report;
 import db.connection.DBConnector;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBHelper {
     private final static String SQL_INSERT = "INSERT INTO reports(id, startDate, endDate, performer, activity) VALUES(?,?,?,?,?)";
+    private final static String SQL_READ = "SELECT * FROM reports";
     private Connection connection;
 
     public DBHelper() throws SQLException {
@@ -37,6 +35,12 @@ public class DBHelper {
             e.printStackTrace();
         }
         return flag;
+    }
+    public ResultSet getReport(PreparedStatement statement) throws SQLException {
+
+
+        return statement.executeQuery();
+
     }
     public void closeStatement(PreparedStatement statement) {
         if (statement != null) {

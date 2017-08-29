@@ -22,7 +22,8 @@
 
     <script>
         $(document).ready(function dateFormat() {
-            var date_input = $('input[type="date"]');
+            var date_input_start = $('input[name="startDate"]');
+            var date_input_end = $('input[name="endDate"]');
 
             var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
             var options = {
@@ -32,7 +33,8 @@
                 orientation: "top left",
                 autoclose: true
             };
-            date_input.datepicker(options);
+            date_input_start.datepicker(options);
+            date_input_end.datepicker(options);
         });
     </script>
 </head>
@@ -62,10 +64,10 @@
                 <tr>
                     <td id="ID"></td>
                     <td>
-                        <input type="date" name="startDate" class="form-control" placeholder="Input Start Date" required>
+                        <input type="text" name="startDate" class="form-control" placeholder="Input Start Date" required>
                     </td>
                     <td>
-                        <input type="date" name="endDate" class="form-control" placeholder="Input End Date" required>
+                        <input type="text" name="endDate" class="form-control" placeholder="Input End Date" required>
                     </td>
                     <td>
                         <input type="text" name="performer" class="form-control" placeholder="Input Performer" required>
@@ -96,10 +98,10 @@
                 <tbody>
                 <tr>
                     <td>
-                        <input type="date" id="strdt" name="startDate" class="form-control" placeholder="Input Start Date" onchange="clearChooseOption()">
+                        <input type="text" id="strdt" name="startDate" class="form-control" placeholder="Input Start Date" onchange="clearChooseOption()">
                     </td>
                     <td>
-                        <input type="date" id="enddt" name="endDate" class="form-control" placeholder="Input End Date" onchange="clearChooseOption()">
+                        <input type="text" id="enddt" name="endDate" class="form-control" placeholder="Input End Date" onchange="clearChooseOption()">
                     </td>
                     <td>
                         <div class="form-group">

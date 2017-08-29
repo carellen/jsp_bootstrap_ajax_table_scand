@@ -11,7 +11,7 @@ function dateFiller() {
     var currQtr = Math.ceil((currDate.getMonth() + 1)/3);
     var firstMonthsOfQtr = ["Jan", "Apr", "Jul", "Oct"];
 
-
+    //WARNING! This beautiful part of code doesn't work properly in IE(what's a shame...)
     switch (chosenOption.options[chosenOption.selectedIndex].text) {
         case "Last Qtr" : switch (currQtr) {
             case 1 : startDateField.value = "Oct 1, " + (currDate.getFullYear() - 1);

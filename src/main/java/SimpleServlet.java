@@ -108,10 +108,9 @@ public class SimpleServlet extends HttpServlet {
     //return empty list if found nothing
     //return null when got wrong date period
     private List<Entity> getReportsList(HttpServletRequest req) {
-        String performer = req.getParameter("performer");
-
         List<Entity> result = new ArrayList<Entity>();
 
+        String performer = req.getParameter("performer");
         Date start = null;
         Date end = null;
         try {
