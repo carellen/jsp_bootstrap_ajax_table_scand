@@ -10,6 +10,8 @@ public class Report extends Entity{
     private Date endDate;
     private String performer;
     private String activity;
+    //for creating list of Reports from resultset
+    public Report() {}
 
     public Report(Date startDate, Date endDate, String performer, String activity) {
         super(nextId++);
@@ -18,9 +20,6 @@ public class Report extends Entity{
         this.performer = performer;
         this.activity = activity;
     }
-
-
-
 
 
     public Date getStartDate() {
